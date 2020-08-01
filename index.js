@@ -15,10 +15,10 @@ module.exports = class Quester {
 		this.timer;
 	}
 
-	done = (result) => {
-			this.jobIsRunning = false;
-			this.jobsBlocked = 0;
-			this.jobAfter(result);
+	done = async (result) => {
+		this.jobIsRunning = false;
+		this.jobsBlocked = 0;
+		await this.jobAfter(result);
 	}
 
 	stop = () => {
@@ -68,7 +68,7 @@ module.exports = class Quester {
 				const elapsed = perf.stop(this.jobName);
 				result.jobRuntime = elapsed;
 				this.jobLogger(`${this.jobName}: FINISH JOB #${this.jobNumber} - took ${elapsed.preciseWords}`, result);
-				this.done(result);
+				await this.done(result);
 			} else {
 				this.jobLogger(`${this.jobName}: AWAIT JOB #${this.jobNumber} (${(this.jobsBlocked - 1) * (this.jobInterval / 1000)} seconds so far..)`);
 			}

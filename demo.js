@@ -7,7 +7,13 @@ const jobData = [
 	{ hello: 'world4' },
 ];
 
-const doJob = async (data) => {
+// example of long-running async job
+const longJob = async (data) => new Promise((accept, reject) => {
+	setTimeout((data) => accept({ processed: data }), 2000);
+})
+
+// example of simple job
+const shortJob = async (data) => {
 	return { processed: data }
 }
 
@@ -15,8 +21,8 @@ const job = new quester({
 	interval: 1000,
 	iterations: 10,
 	name: 'demoJob',
-	func: () => doJob(jobData),
-	after: (result) => {
+	func: () => shortJob(jobData),
+	after: async (result) => {
 		console.log("RESULT", result);
 	},
 	logger: (msg) => {
