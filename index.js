@@ -73,7 +73,7 @@ module.exports = class Quester {
 				this.jobLogger(`${this.jobName}: AWAIT JOB #${this.jobNumber} (${(this.jobsBlocked - 1) * (this.jobInterval / 1000)} seconds so far..)`);
 			}
 		} else {
-				this.jobLogger(`${this.jobName}: JOB #${this.jobNumber} - NOT ENABLED`);
+			this.jobLogger(`${this.jobName}: JOB #${this.jobNumber} - NOT ENABLED`);
 		}
 	}
 

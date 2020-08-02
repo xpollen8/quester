@@ -3,8 +3,13 @@ Manage long-running cron or Q processing pipelines.
 
 Ensures that only a single pipeline instance will run at a time.
 
+# Install
 
-Usage
+```
+https://github.com/xpollen8/quester
+```
+
+# Usage
 
 ```
 const quester = require('quester');
