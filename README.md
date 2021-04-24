@@ -6,7 +6,7 @@ Ensures that only a single pipeline instance will run at a time.
 # Install
 
 ```
-https://github.com/xpollen8/quester
+npm i https://github.com/xpollen8/quester
 ```
 
 # Usage
